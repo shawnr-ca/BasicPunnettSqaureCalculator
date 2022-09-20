@@ -1,8 +1,7 @@
 def PSC():
-    # Explain purpose and use of Calculator
     print(
         "This Punnet Square Calculator determines the Genotypes and Phenotypes for a given set of parent alleles. This includes when one allele for each parent is present, when two alleles for the same gene from each parent are present and when two alleles from two different genes are present for each parent. When inputing more than one gene, the genes must correspond for each parent!")
-    # Ask for input of Maternal and Paternal Genotypes
+    
     mGeno = input("What is the Maternal Genotype?")
     fGeno = input("What is the Paternal Genotype?")
 
@@ -37,7 +36,7 @@ def PSC():
             offDihyb.append(MdiHyblist[i] + FdiHyblist[2])
             offDihyb.append(MdiHyblist[i] + FdiHyblist[3])
 
-    # Determine Phenotype for 1 Allele or a gene from each Parent
+
     GenoCap = 0
     if len(mGeno) == 1:
         Trait1 = offGeno[0]
@@ -49,7 +48,7 @@ def PSC():
     elif GenoCap < 0:
         Pheno = Pheno.lower()
 
-    # Determine Offspring Phenotypes for when two alleles for a single gene from each parent are inputted
+
     if len(mGeno) == 2:
         offGenoElem1 = offGeno[0]
         offGenoElem2 = offGeno[1]
@@ -84,16 +83,16 @@ def PSC():
             elif offDihyb[i].count(A) == 0 and offDihyb[i].count(B) == 0:
                 ab = ab + 1
 
-    # Print Genotypes
+
     print("The Maternal Genotype is " + mGeno)
     print("The Paternal Genotype is " + fGeno)
 
-    # What to print in case of 1 Allele from each Parent
+
     if len(mGeno) == 1:
         print("The offspring Genotype will be " + str(offGeno))
         print("The Offspring Phenotype will be " + Pheno)
 
-    # What to print in case of 2 alleles for s single gene from each parent
+
     elif len(mGeno) == 2:
         print("The potential Genotypes for the Offspring are " + str(offGeno))
         print("The number of potential Offspring with the Dominant trait will be " + str(
@@ -101,7 +100,7 @@ def PSC():
         print("The number of potential Offspring with the Recessive trait will be " + str(
             4 - GenoCap) + " out of 4" + " (" + str(((4 - GenoCap) / 4) * 100) + "%)")
 
-    # What to print in case of Dihybrid Cross
+
     elif len(mGeno) == 4:
         print("The potential Genotypes for the Offspring are " + str(offDihyb))
         print("The phenotypes for the potential offspring are: ")
@@ -112,9 +111,7 @@ def PSC():
     restart = input("Would you like to enter new Parental Genotypes?")
     if restart == "yes" or restart == "y":
         PSC()
-    if restart == "n" or restart == "no":
-        print
-        "Script terminating. Goodbye."
+
 
 
 PSC()
